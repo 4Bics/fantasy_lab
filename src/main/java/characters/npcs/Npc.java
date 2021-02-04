@@ -1,5 +1,7 @@
 package characters.npcs;
 
+import interfaces.IWeapon;
+
 public abstract class Npc implements IWeapon {
 
     private String name;
