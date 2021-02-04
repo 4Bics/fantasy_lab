@@ -1,6 +1,8 @@
 package characters.players;
 
-public abstract class Player {
+import interfaces.IWeapon;
+
+public abstract class Player implements IWeapon {
 
     private String name;
     private int healthPool;
@@ -16,5 +18,9 @@ public abstract class Player {
 
     public int getHealthPool(){
         return this.healthPool;
+    }
+
+    public void takeDamage(int damageTaken){
+        this.healthPool -= damageTaken;
     }
 }
