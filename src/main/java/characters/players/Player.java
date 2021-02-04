@@ -38,8 +38,12 @@ public abstract class Player implements IWeapon, IHeal {
         this.healthPool -= damageTaken;
     }
 
-    public void attack(Npc npc){
+    public void attackNpc(Npc npc){
         npc.setHealthPool(npc.getHealthPool() - this.weapon.getDamageValue());
+    }
+
+    public void attackPlayer(Player player){
+        player.setHealthPool(player.getHealthPool() - this.weapon.getDamageValue());
     }
 
     public void heal(Consumables consumable){

@@ -16,4 +16,8 @@ public enum Weapons {
         return damageValue;
     }
 
+    public int enhanceDamage(int i){
+        return damageValue + i;
+    }
+
 }

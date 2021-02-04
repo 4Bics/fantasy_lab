@@ -1,5 +1,6 @@
 package characters.players.fighters;
 
+import characters.npcs.Npc;
 import characters.players.Player;
 import enums.Weapons;
 
@@ -16,10 +17,8 @@ public abstract class Fighter extends Player {
         return this.energyResource;
     }
 
-    @Override
-    public int attack(){
-        int enhancedAttack = this.weapon.getDamageValue() + 1;
-        return enhancedAttack;
+    public void attackNpc(Npc npc){
+        npc.setHealthPool(npc.getHealthPool() - this.weapon.enhanceDamage(1));
     }
 
 }

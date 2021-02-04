@@ -1,5 +1,7 @@
 package characters.npcs;
 
+import characters.players.Player;
+import enums.Weapons;
 import interfaces.IWeapon;
 
 public abstract class Npc implements IWeapon {
@@ -8,12 +10,14 @@ public abstract class Npc implements IWeapon {
     private int healthPool;
     private int energyResource;
     private boolean isFriendly;
+    private Weapons weapon;
 
-    public Npc(String name, int healthPool, int energyResource, boolean isFriendly){
+    public Npc(String name, int healthPool, int energyResource, boolean isFriendly, Weapons weapon){
         this.name = name;
         this.healthPool = healthPool;
         this.energyResource = energyResource;
         this.isFriendly = isFriendly;
+        this.weapon = weapon;
     }
 
     public String getName() {
@@ -47,4 +51,13 @@ public abstract class Npc implements IWeapon {
     public void takeDamage(int damageTaken){
         this.healthPool -= damageTaken;
     }
+
+    public void attackPlayer(Player player) {
+        player.setHealthPool(player.getHealthPool() - this.weapon.getDamageValue());
+    }
+
+    public void attackNpc(Npc npc){
+        npc.setHealthPool(npc.getHealthPool() - this.weapon.getDamageValue());
+    }
+
 }

@@ -1,5 +1,6 @@
 package characters.players.fighters;
 
+import characters.npcs.Ogre;
 import enums.Weapons;
 
 import static org.junit.Assert.*;
@@ -7,12 +8,12 @@ import static org.junit.Assert.*;
 public class DwarfTest {
 
     Dwarf dwarf;
-    Dwarf dwarf1;
+    Ogre ogre;
 
     @org.junit.Before
     public void setUp() throws Exception {
         dwarf = new Dwarf("Durin", 100, 100, Weapons.SWORD);
-        dwarf1 = new Dwarf("Peter", 100, 100, Weapons.AXE);
+        ogre = new Ogre("Shrek", 100, 100, false, Weapons.CLUB);
     }
 
     @org.junit.Test
@@ -38,8 +39,7 @@ public class DwarfTest {
 
     @org.junit.Test
     public void attack() {
-        int attackValue = dwarf.attack();
-        int secondAttackValue = dwarf1.attack();
-        assertEquals(4, attackValue);
+        dwarf.attackNpc(ogre);
+        assertEquals(96, ogre.getHealthPool());
     }
 }
