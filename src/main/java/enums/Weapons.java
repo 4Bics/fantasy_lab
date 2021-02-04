@@ -12,7 +12,7 @@ public enum Weapons {
         this.damageValue = damageValue;
     }
 
-    public int damageValue(){
+    public int getDamageValue(){
         return damageValue;
     }
 

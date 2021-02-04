@@ -24,6 +24,10 @@ public abstract class Npc implements IWeapon {
         return healthPool;
     }
 
+    public void setHealthPool(int i){
+        this.healthPool = i;
+    }
+
     public int getEnergyResource() {
         return energyResource;
     }
